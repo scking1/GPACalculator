@@ -15,6 +15,7 @@ public:
 	//custom constructor
 	Course(std::string n, double g) : name(n), grade(g) {}
 
+	//accessors
 	std::string get_name() const { return name; }
 	double get_grade() const { return grade; }
 };
