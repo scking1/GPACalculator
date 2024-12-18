@@ -2,18 +2,23 @@
 /*
 Scott King
 
-A header file to declare and implement a FileIO class
+A header file to declare a FileIO class
 
 */
 
+#include "Course.hpp"
+#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 class FileIO {
-	std::ifstream inFile{};
-	std::ofstream outFile{};
+	std::ifstream inFile_;
 public:
 	//constructor
-	FileIO() = default;
+	FileIO(std::string file) : inFile_(file) {}
+
+	//helper functions
+	void parse_file(std::vector<Course>&);
 };
