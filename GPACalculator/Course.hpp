@@ -11,17 +11,16 @@ Course class declaration
 class Course {
 	std::string _courseName;
 	double _grade;
-	double _gradePoint;
 
 public:
 	Course() = default;
 
 	//custom constructor
-	Course(std::string n, double g);
+	Course(std::string n, double g) : _courseName(n), _grade(g) {}
+
 	//accessors
 	std::string get_course_name() const { return _courseName; }
 	double get_grade() const { return _grade; }
-	double get_grade_point() const { return _gradePoint; }
 };
 
 std::ostream& operator << (std::ostream& _os, const Course& _c);
