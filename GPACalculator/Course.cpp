@@ -1,5 +1,6 @@
 /*
 Scott King
+Created: Dec 17, 2024
 
 Course class definition
 

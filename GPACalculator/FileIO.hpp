@@ -1,6 +1,7 @@
 #pragma once
 /*
 Scott King
+Created: Dec 17, 2024
 
 A header file to declare a FileIO class
 

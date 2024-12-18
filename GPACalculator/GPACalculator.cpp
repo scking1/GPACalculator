@@ -1,11 +1,13 @@
 /*
 Scott King
+Created: Dec 17, 2024
 
 This program will calculate the term GPA for a student.
 
 */
 
 #include "FileIO.hpp"
+#include "Menu.hpp"
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -15,6 +17,33 @@ int main() {
 
     std::vector<Course> courses;
     FileIO fileIO{ "./course_term_grades_2.csv" };
+
+	std::vector<std::string> s{ "Add Course","Load Courses","Calculate Term GPA","Exit" };
+	Menu m(s);
+
+
+	for (;;) {
+		m.display_selections();
+
+		unsigned int input{ m.get_selection_input() };
+
+		switch (input) {
+		case 1:
+			std::cout << "Selection 1" << std::endl;
+			continue;
+		case 2:
+			std::cout << "Selection 2" << std::endl;
+			continue;
+		case 3:
+			std::cout << "Selection 3" << std::endl;
+			continue;
+		default:
+			std::cout << "Exiting program..." << std::endl;
+			return EXIT_SUCCESS;
+
+		}
+
+	}
 
     //populate the vector
     fileIO.parse_file(courses);
