@@ -8,12 +8,13 @@ This program will calculate the term GPA for a student.
 #include "FileIO.hpp"
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 int main() {
     std::cout << "Scott King's GPA Calculator!\n";
 
     std::vector<Course> courses;
-    FileIO fileIO{ "./course_term_grades.csv" };
+    FileIO fileIO{ "./course_term_grades_2.csv" };
 
     //populate the vector
     fileIO.parse_file(courses);
@@ -40,6 +41,7 @@ int main() {
 			totalGPA += 1.0;
     }
 
+	std::cout << std::fixed << std::setprecision(2);
     std::cout << "Term GPA achieved: " << totalGPA / courses.size() << std::endl;
 
     std::cout << "\nCourses:" << std::endl;
