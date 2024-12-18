@@ -2,22 +2,26 @@
 /*
 Scott King
 
-A header file to declare and implement a Course class
+Course class declaration
 
 */
 #include <string>
+#include <ostream>
 
 class Course {
-	std::string courseName_;
-	double grade_;
+	std::string _courseName;
+	double _grade;
+	double _gradePoint;
 
 public:
 	Course() = default;
 
 	//custom constructor
-	Course(std::string n, double g) : courseName_(n), grade_(g) {}
-
+	Course(std::string n, double g);
 	//accessors
-	std::string get_course_name() const { return courseName_; }
-	double get_grade() const { return grade_; }
+	std::string get_course_name() const { return _courseName; }
+	double get_grade() const { return _grade; }
+	double get_grade_point() const { return _gradePoint; }
 };
+
+std::ostream& operator << (std::ostream& _os, const Course& _c);

@@ -7,7 +7,6 @@ A header file to declare a FileIO class
 */
 
 #include "Course.hpp"
-#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>

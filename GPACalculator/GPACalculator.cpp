@@ -18,8 +18,15 @@ int main() {
     //populate the vector
     fileIO.parse_file(courses);
 
+    double totalGPA{};
+    for (const auto& c : courses)
+        totalGPA += c.get_grade_point();
+
+    std::cout << "Term GPA achieved: " << totalGPA / courses.size() << std::endl;
+
+    std::cout << "\nCourses:" << std::endl;
     for (const auto& c : courses) {
-        std::cout << c.get_course_name() << " " << c.get_grade() << std::endl;
+        std::cout << c << std::endl;
     }
 
 }
