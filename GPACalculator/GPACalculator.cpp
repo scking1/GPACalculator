@@ -6,7 +6,6 @@ This program will calculate the term GPA for a student.
 
 */
 
-//#include "FileIO.hpp"
 #include "Menu.hpp"
 #include <iostream>
 #include <vector>
