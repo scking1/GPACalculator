@@ -15,32 +15,29 @@ This program will calculate the term GPA for a student.
 int main() {
     std::cout << "Scott King's GPA Calculator!\n";
 
-	std::vector<std::string> s{ "Add Course","Load Courses","Display Course","Calculate Term GPA","Exit" };
+	std::vector<std::string> s{ "Add Course","Load Courses","Display Courses","Calculate Term GPA","Exit" };
 	Menu m(s);
 	std::vector<Course> courses;
 
 	for (;;) {
 		m.display_selections();
 
-		unsigned int input{ m.get_selection_input() };
+		unsigned int choice{ m.get_selection_choice() };
 
-		switch (input) {
+		switch (choice) {
 		case 1:
 			m.add_course(courses);
-			//std::cout << "Selection 1" << std::endl;
 			continue;
 		case 2:
 			m.load_courses(courses);
-			std::cout << "Selection 2" << std::endl;
 			continue;
 		case 3:
 			m.display_courses(courses);
-			std::cout << "Selection 3" << std::endl;
 			continue;
 		case 4: {
 			double termGPA{ m.calculate_term_gpa(courses) };
 			if (termGPA == -1) {
-				std::cout << "No courses for term" << std::endl;
+				std::cout << "No courses for the term" << std::endl;
 				continue;
 			}
 

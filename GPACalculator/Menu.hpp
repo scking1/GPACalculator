@@ -24,14 +24,9 @@ public:
 
 	//methods
 	void display_selections();
-
-	unsigned int get_selection_input();
-
+	unsigned int get_selection_choice();
 	void add_course(std::vector<Course>&);
-
 	void display_courses(const std::vector<Course>&);
-
 	void load_courses(std::vector<Course>&);
-
 	double calculate_term_gpa(const std::vector<Course>&);
 };

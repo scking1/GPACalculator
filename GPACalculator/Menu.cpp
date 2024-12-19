@@ -12,7 +12,7 @@ void Menu::display_selections() {
 	std::for_each(begin(_selections), end(_selections), [i = 0](auto e) mutable { std::cout << ++i << ". " << e << std::endl; });
 }
 
-unsigned int Menu::get_selection_input() {
+unsigned int Menu::get_selection_choice() {
 	for (;;) {
 		std::string inputStr;
 		std::getline(std::cin, inputStr);
@@ -37,33 +37,38 @@ unsigned int Menu::get_selection_input() {
 }
 
 void Menu::add_course(std::vector<Course>& courses) {
-	std::cout << "Enter course name: ";
-	std::string courseName;
-	std::getline(std::cin, courseName);
-
 	for (;;) {
-		std::cout << "Enter final course grade: ";
+		std::cout << "Enter course name (leave blank when done): ";
+		std::string courseName;
+		std::getline(std::cin, courseName);
 
-		std::string gradeStr;
-		std::getline(std::cin, gradeStr);
+		if (courseName.empty())
+			break;
 
-		std::istringstream iss(gradeStr);
+		for (;;) {
+			std::cout << "Enter final course grade: ";
 
-		double grade;
-		if (!(iss >> grade)) {
-			//grade not a number
-			std::cout << "Invalid input" << std::endl;
-			continue;
+			std::string gradeStr;
+			std::getline(std::cin, gradeStr);
+
+			std::istringstream iss(gradeStr);
+
+			double grade;
+			if (!(iss >> grade)) {
+				//grade not a number
+				std::cout << "Invalid input" << std::endl;
+				continue;
+			}
+
+			if (grade < 0 || grade > 100) {
+				//grade not within valid range
+				std::cout << "Grade must be between 0-100" << std::endl;
+				continue;
+			}
+
+			courses.push_back(Course(courseName, grade));
+			break;
 		}
-
-		if (grade < 0 || grade > 100) {
-			//grade not within valid range
-			std::cout << "Grade must be between 0-100" << std::endl;
-			continue;
-		}
-
-		courses.push_back(Course(courseName, grade));
-		break;
 	}
 }
 
