@@ -7,6 +7,7 @@ Menu class declaration
 
 */
 
+#include "Course.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -24,4 +25,8 @@ public:
 	void display_selections();
 
 	unsigned int get_selection_input();
+
+	void add_course(std::vector<Course>&);
+
+	void display_courses(const std::vector<Course>&);
 };

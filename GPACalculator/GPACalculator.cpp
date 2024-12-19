@@ -18,9 +18,8 @@ int main() {
     std::vector<Course> courses;
     FileIO fileIO{ "./course_term_grades_2.csv" };
 
-	std::vector<std::string> s{ "Add Course","Load Courses","Calculate Term GPA","Exit" };
+	std::vector<std::string> s{ "Add Course","Load Courses","Display Course","Calculate Term GPA","Exit" };
 	Menu m(s);
-
 
 	for (;;) {
 		m.display_selections();
@@ -29,13 +28,17 @@ int main() {
 
 		switch (input) {
 		case 1:
-			std::cout << "Selection 1" << std::endl;
+			m.add_course(courses);
+			//std::cout << "Selection 1" << std::endl;
 			continue;
 		case 2:
 			std::cout << "Selection 2" << std::endl;
 			continue;
 		case 3:
+			m.display_courses(courses);
 			std::cout << "Selection 3" << std::endl;
+			continue;
+		case 4:
 			continue;
 		default:
 			std::cout << "Exiting program..." << std::endl;
