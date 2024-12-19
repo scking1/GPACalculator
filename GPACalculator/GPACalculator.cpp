@@ -20,18 +20,22 @@ int main() {
 	std::vector<Course> courses;
 
 	for (;;) {
+		std::cout << '\n';
 		m.display_selections();
 
 		unsigned int choice{ m.get_selection_choice() };
 
 		switch (choice) {
 		case 1:
+			std::cout << '\n';
 			m.add_course(courses);
 			continue;
 		case 2:
+			std::cout << '\n';
 			m.load_courses(courses);
 			continue;
 		case 3:
+			std::cout << '\n';
 			m.display_courses(courses);
 			continue;
 		case 4: {
@@ -41,12 +45,11 @@ int main() {
 				continue;
 			}
 
-			std::cout << std::fixed << std::setprecision(2);
-			std::cout << "Term GPA achieved: " << termGPA << std::endl;
+			std::cout << "\nTerm GPA achieved: " << termGPA << std::endl;
 			continue;
 		}
 		default:
-			std::cout << "Exiting program..." << std::endl;
+			std::cout << "\nExiting program..." << std::endl;
 			return EXIT_SUCCESS;
 
 		}
