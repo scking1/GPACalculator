@@ -13,6 +13,7 @@ Menu class declaration
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <fstream>
 
 class Menu {
 	std::vector<std::string> _selections;
@@ -29,4 +30,8 @@ public:
 	void add_course(std::vector<Course>&);
 
 	void display_courses(const std::vector<Course>&);
+
+	void load_courses(std::vector<Course>&);
+
+	double calculate_term_gpa(const std::vector<Course>&);
 };
